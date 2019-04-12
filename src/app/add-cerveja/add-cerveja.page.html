@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Adicione uma nova Cerveja</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form #form="ngForm" (ngSubmit)="salvar(form)">
+    <ion-item>
+      <ion-label color="primary" position="floating">
+          Nome da cerveja:
+      </ion-label>
+      <ion-input name="nome" ngModel></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" position="floating">
+          Descrição
+      </ion-label>
+      <ion-textarea name="descricao" ngModel>
+      </ion-textarea>
+    </ion-item>
+    <ion-button type="submit">
+        <ion-icon name="save"></ion-icon>
+          Salvar
+    </ion-button>
+  </form>
+  {{mensagem}}
+</ion-content>

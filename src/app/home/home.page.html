@@ -1,8 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
+
       App de loja de cerveja
     </ion-title>
+    <ion-buttons slot="primary">
+        <ion-button [routerLink]='["/add-cerveja"]'>
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -12,8 +18,5 @@
   <br/>
   <h2>Conheça nossas Cervejas</h2>
   <br/>
-  <ion-button color="warning" [routerLink]="['/puro-malte']">Puro Malte</ion-button>
-  <ion-button color="danger" [routerLink]="['/pilsen']">Pilsen</ion-button>
-  <ion-button color="secondary" [routerLink]="['/lager']">Lager</ion-button>
-
+  
 </ion-content>
