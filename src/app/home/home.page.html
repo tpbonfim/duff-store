@@ -5,18 +5,29 @@
       App de loja de cerveja
     </ion-title>
     <ion-buttons slot="primary">
-        <ion-button [routerLink]='["/add-cerveja"]'>
-          <ion-icon name="add"></ion-icon>
-        </ion-button>
+      <ion-button [routerLink]='["/add-cerveja"]'>
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+  <ion-content padding>
+    Bem vindo ao App de cerveja mais famoso do Brasil.
+    <br />
+    <br />
+    <h2>Conheça nossas Cervejas</h2>
+    <br />
 
-<ion-content padding>
-  Bem vindo ao App de cerveja mais famoso do Brasil.
-  <br/>
-  <br/>
-  <h2>Conheça nossas Cervejas</h2>
-  <br/>
-  
+  <div *ngFor="let cerveja of cervejas">
+    <ion-card>
+      <ion-card-content>
+        <h2>
+          {{cerveja.nome}}
+        </h2>
+        <p>
+          {{cerveja.descricao}}
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

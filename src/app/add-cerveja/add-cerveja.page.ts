@@ -21,7 +21,18 @@ export class AddCervejaPage implements OnInit {
 
     sessionStorage.setItem(nomeCerveja, cervejaString)
 
+    let chavesDisponiveis = sessionStorage.getItem("chaves");
+
+    if(chavesDisponiveis !== null){
+      chavesDisponiveis = chavesDisponiveis + ";" + nomeCerveja;
+    }else{
+      chavesDisponiveis=nomeCerveja
+    }
+
+    sessionStorage.setItem("chaves",chavesDisponiveis)
+
     form.reset();
     this.mensagem="Cadastrado com sucesso !!!"
+    console.log('As chaves Disponiveis são:', chavesDisponiveis)
   }
 }
