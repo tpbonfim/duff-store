@@ -15,19 +15,28 @@
     Bem vindo ao App de cerveja mais famoso do Brasil.
     <br />
     <br />
-    <h2>Conheça nossas Cervejas</h2>
-    <br />
-
-  <div *ngFor="let cerveja of cervejas">
-    <ion-card>
-      <ion-card-content>
-        <h2>
-          {{cerveja.nome}}
-        </h2>
-        <p>
-          {{cerveja.descricao}}
-        </p>
-      </ion-card-content>
-    </ion-card>
-  </div>
+    <div *ngIf="cervejas.length > 0">
+        <h2>Conheça nossas Cervejas</h2>
+        <br />
+    
+      <div *ngFor="let cerveja of cervejas">
+        <ion-card>
+          <ion-card-content>
+            <h2>
+              {{cerveja.nome}}
+            </h2>
+            <p>
+              {{cerveja.descricao}}
+            </p>
+            <p style="text-align: right">
+              <ion-button color="danger" fill="outline" size="small" (click)="excluir(cerveja.nome)">Excluir</ion-button>
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+    <div *ngIf="cervejas.length === 0" >
+      <p>Ainda nao a cervejas cadastradas</p>
+      <ion-button [routerLink]='["/add-cerveja"]'>Cadrastrar agora</ion-button>
+    </div>
 </ion-content>

@@ -8,22 +8,29 @@ import { configFromSession } from '@ionic/core';
 })
 export class HomePage implements OnInit {
 
+  constructor(){
+    this.cervejas =[];
+  }
+
   cervejas;
 
-  ngOnInit() {
+  ngOnInit() {}
 
-
+  excluir(nome){
+    console.log(nome)
+    localStorage.removeItem(nome)
   }
-  ionViewDidEnter() {
-    this.cervejas = [];
 
-    const chavesDisponiveis = sessionStorage.getItem('chaves')
+    ionViewDidEnter() {
+      this.cervejas=[]
+      const tamanhoDoBanco=localStorage.length
+      for (let index = 0; index < tamanhoDoBanco; index++) {
+        const chave = localStorage.key(index)
+        const cerveja= localStorage.getItem(chave)
+        const cervejaReal= JSON.parse(cerveja)
+        
+      }
 
-    const chavesSeparadas = chavesDisponiveis.split(';')
-    for (var i = 0; i < chavesSeparadas.length; i++) {
-      const cerveja = sessionStorage.getItem(chavesSeparadas[i])
-      const cervejaObj = JSON.parse(cerveja)
-      this.cervejas.push(cervejaObj)
     }
-  }
+
 }
