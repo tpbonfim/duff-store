@@ -6,28 +6,26 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './cerveja-detalhes.page.html',
   styleUrls: ['./cerveja-detalhes.page.scss'],
 })
-export class CervejaDetalhesPage implements OnInit {
+export class CervejaDetalhesPage  {
 
   nome;
-  detalhes;
+  descricao;
 
   constructor(private route:ActivatedRoute) { 
     console.log("executou o construtor")
   }
 
-  ngOnInit() {
-    let idCerveja= this.route.snapshot.params.id;
+  mostrar(){
+    const nomeCerveja= this.route.snapshot.params.id
+    const cervejaReal= localStorage.getItem(nomeCerveja)
+    const cervejaObjeto= JSON.parse(cervejaReal)
+    this.nome= cervejaObjeto.nome
+    this.descricao= cervejaObjeto.descricao
     
-    if(idCerveja === "50"){
-      this.nome="Proibida"
-      this.detalhes="Tão gostosa que é proibida. A melhor cerveja do ceara"
-    }else if(idCerveja==="60"){
-      this.nome="Skol"
-      this.detalhes="A puro malte que desce Redondo"
-    }else if(idCerveja==="70"){
-      this.nome="Imperio"
-      this.detalhes="A cerveja Império Puro Malte nasceu da busca pela perfeição.Sua elaboração nobre, fruto do trabalho rigoroso dos melhores mestres-cervejeiros do Brasil"
-    }
   }
 
+  ionViewDidEnter() {
+      this.mostrar()
+  }
 }
+

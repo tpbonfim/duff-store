@@ -20,7 +20,7 @@
         <br />
     
       <div *ngFor="let cerveja of cervejas">
-        <ion-card>
+        <ion-card (click)="detalhes(cerveja.nome)">
           <ion-card-content>
             <h2>
               {{cerveja.nome}}
@@ -37,6 +37,6 @@
     </div>
     <div *ngIf="cervejas.length === 0" >
       <p>Ainda nao a cervejas cadastradas</p>
-      <ion-button [routerLink]='["/add-cerveja"]'>Cadrastrar agora</ion-button>
+      <ion-button [routerLink]='["/add-cerveja"]'>Cadastrar agora</ion-button>
     </div>
 </ion-content>
